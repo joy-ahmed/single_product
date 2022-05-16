@@ -1,0 +1,1 @@
+Simple & single product shopify theme development
