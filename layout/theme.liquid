@@ -11,7 +11,7 @@
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
 </head>
-<body>
+<body class="template-{{ template }}">
 
   <!-- {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
@@ -37,7 +37,17 @@
     {% endif %}
   {% endif %} -->
 
-  <a href="/cart" class="link-to-cart">Link to cart</a>
+{% if template != 'cart' %}
+  <a href="/cart" class="link-to-cart">
+    {% if cart.item_count > 0 %}
+      {{ 'cart.button.filled' | t }}
+    {% else %}
+      {{ 'cart.button.empty' | t }}
+    {% endif %}
+  </a>
+{% else %}
+  <a href="/" class="link-to-home">{{ 'cart.button.close' | t }}</a>
+{% endif %}
 
   <main role="main">
     {{ content_for_layout }}
