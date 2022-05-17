@@ -20,7 +20,7 @@
   },
   "cart": {
     "button": {
-      "filled": "Your card",
+      "filled": "Your cart",
       "empty": "Your card is empty",
       "close": "Close"
     }
