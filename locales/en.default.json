@@ -19,10 +19,25 @@
     }
   },
   "cart": {
+    "general":{
+      "title": "Cart",
+      "preorder_info": "All preorders ship free this March.",
+      "suppor_title": "Any question?",
+      "support_email":"support@fitra.com",
+      "checkout": "Checkout",
+      "empty": "Your cart is empty",
+      "back": "Back to Fitra"
+    },
     "button": {
       "filled": "Your cart",
       "empty": "Your card is empty",
       "close": "Close"
+    },
+    "lines": {
+      "title": "Order Sumary",
+      "shipping": "Shipping",
+      "subtotal": "Subtotal",
+      "free": "Free"
     }
   }
 }
