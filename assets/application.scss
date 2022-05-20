@@ -1,0 +1,265 @@
+// Put your styles in this file.
+// Note: "@import" rules aren’t supported.
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+// fonts
+$main-font: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+// colors
+$color-accent: #FF3700;
+$color-text: #555555;
+$color-dark: #000000;
+$white: #fff;
+$color-border: #DEDEDE;
+$color-label: #707070;
+$standard-border: 1px solid $color-border;
+$black-border: 1px solid $color-dark;
+
+$line-global: 20px;
+$gutter-global: $line-global * 2;
+$body-font-size: 15px;
+$label-font-size: 12px;
+
+@mixin reset-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  text-align: left;
+}
+
+//base
+*{
+  font-family: $main-font;
+  box-sizing: border-box;
+}
+
+html,
+body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: $color-dark;
+  line-height: $line-global;
+  background-color: $white;
+}
+
+body{
+  font-size: $body-font-size;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol{
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+a{
+  text-decoration: none;
+}
+
+//style guide
+.headline-big{
+  font-size: 22vw;
+  line-height: 1;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+}
+h2{
+  font-size: $body-font-size * 2;
+  line-height: $line-global * 2;
+}
+h3{
+  font-size: $body-font-size;
+  line-height: $line-global;
+}
+
+.list-with-stroke{
+  list-style-type: none;
+  
+  li{
+    padding: $line-global 0;
+    border-top: $standard-border;
+  }
+  li:last-child{
+    border-bottom: $standard-border;
+  }
+}
+
+p,ol,ul {
+  color: $color-text;
+}
+
+label{
+  font-size: $label-font-size;
+  color: $color-label;
+}
+
+.styled-select{
+  position: relative;
+  .select-arrow{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: $line-global * 3;
+    text-align: center;
+    line-height: $line-global * 3;
+    border-left: $black-border;
+    pointer-events: none;
+  }
+  img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.styled-select select {
+  @include reset-input;
+  width: 100%;
+  font-size: $body-font-size;
+  line-height: $line-global;
+  padding: $line-global;
+  border: $black-border;
+}
+
+button{
+  @include reset-input;
+  width: 100%;
+  font-size: $body-font-size;
+  line-height: $line-global;
+  padding: $line-global;
+  background-color: $color-accent;
+  color: $white;
+}
+
+//utility classes
+.grid{
+  display: grid;
+  grid-column-gap: $gutter-global;
+  grid-row-gap: $gutter-global;
+}
+
+.two-columns{
+  grid-template-columns: 1fr 1fr;
+}
+
+#info-grid-content{
+  grid-row-gap: $gutter-global/2;
+}
+
+.main-content{
+  min-height: 100vh;
+  padding: $gutter-global;
+  width: calc(50% + #{$gutter-global/2});
+  margin-left: auto;
+}
+
+.valign-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.valign-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.sticky-side-image{
+  position: fixed;
+  left: 0;
+  top: $gutter-global;
+  bottom: $gutter-global;
+  width: calc(50% - #{$gutter-global/2});
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .single-product-image{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+//global styles
+.link-to-cart{
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: $gutter-global;
+  color: $color-text;
+  .cart-item-count{
+    display: block;
+    font-size: 0px;
+    width: 10px;
+    height: 10px;
+    background: $color-border;
+    border-radius: 100%;
+    margin-top: 5px;
+  }
+  .cart-text{
+    position: absolute;
+    right: calc(100% - #{$gutter-global/2});
+    top: $gutter-global;
+    white-space: nowrap;
+    display: none;
+  }
+  &:hover .cart-text{
+    display: block;
+  }
+}
+
+.link-to-cart.cart-filled .cart-item-count{
+  width: 20px;
+  height: 20px;
+  background: $color-accent;
+  font-size: $label-font-size;
+  color: $white;
+  text-align: center;
+  margin-top: 0;
+}
+
+//index styles
+// #page-index{
+
+// }
+
+#product-info{
+  grid-template-rows: minmax(max-content, auto) minmax(min-content, max-content);
+}
+
+.headline{
+  padding-bottom: $line-global * 3;
+}
+
+.description-content{
+  margin-top: $line-global;
+}
+
+#add-to-cart-button{
+  display: flex;
+  justify-content: space-between;
+  .product-price{
+    font-size: 12px;
+  }
+}
+
+.from-wrapper{
+  padding-top: $line-global * 3;
+}
+#add-to-cart-form{
+  margin-top: -($line-global);
+}

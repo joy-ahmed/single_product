@@ -29,8 +29,8 @@
       "back": "Back to Fitra"
     },
     "button": {
-      "filled": "Your cart",
-      "empty": "Your card is empty",
+      "filled": "View cart",
+      "empty": "Cart is empty",
       "close": "Close"
     },
     "lines": {
